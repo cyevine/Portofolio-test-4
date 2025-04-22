@@ -1,25 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visual Novel Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VN Portfolio - Opening</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #008c99;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+    
+    /* Cloud Animation */
+    .cloud {
+      position: absolute;
+      background: white;
+      width: 200px;
+      height: 100px;
+      border-radius: 50%;
+      box-shadow: 100px 50px 0 -20px white, 150px 70px 0 -20px white;
+      animation: moveClouds 20s linear infinite;
+    }
+
+    .cloud:nth-child(2) {
+      width: 150px;
+      height: 75px;
+      animation-delay: -5s;
+      top: 100px;
+      left: -300px;
+    }
+
+    .cloud:nth-child(3) {
+      width: 180px;
+      height: 90px;
+      animation-delay: -10s;
+      top: 200px;
+      left: -400px;
+    }
+
+    @keyframes moveClouds {
+      0% {
+        transform: translateX(-300px);
+      }
+      100% {
+        transform: translateX(100vw);
+      }
+    }
+
+    .character {
+      position: absolute;
+      bottom: 220px;
+      right: 20px;
+      height: 60%;
+      z-index: 1;
+      display: none;
+    }
+    .dialogue-box {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      height: 200px;
+      background-color: white;
+      border: 5px solid #008c99;
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: opacity 0.5s ease-in-out;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .name-box {
+      position: absolute;
+      bottom: 230px;
+      right: 20px;
+      background-color: white;
+      padding: 15px 35px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      border: 3px solid #008c99;
+      z-index: 2;
+      display: none;
+    }
+    .options-box {
+      position: absolute;
+      bottom: 240px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2;
+      width: 80%;
+      max-width: 600px;
+    }
+    .option-btn {
+      background-color: white;
+      color: black;
+      border: 3px solid #008c99;
+      border-radius: 10px;
+      padding: 18px 25px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+    .option-btn:hover {
+      background-color: #e0f7fa;
+    }
+    .audio-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .audio-controls button {
+      background: white;
+      border: 2px solid #008c99;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .start-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      font-size: 1.2rem;
+      background-color: white;
+      border: 3px solid #008c99;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="background">
-      <div class="cloud"></div>
-      <div class="cloud"></div>
-      <div class="cloud"></div>
-    </div>
-    <div class="character">
-      <img src="character.png" alt="Character">
-    </div>
-    <div class="text-box">
-      <h1>Nama Anda</h1>
-      <p>Deskripsi singkat atau tagline Anda.</p>
-    </div>
-  </div>
+  <!-- Cloud Elements -->
+  <div class="cloud" style="top: 50px; left: -200px;"></div>
+  <div class="cloud" style="top: 150px; left: -250px;"></div>
+  <div class="cloud" style="top: 250px; left: -300px;"></div>
+
+  <img src="oe talking.png" alt="OC" class="character" id="ocImage" />
+  <div class="name-box" id="nameBox">Cyevine</div>
+  <div class="dialogue-box" id="dialogue" style="display: none;">Welcome! Kesini mau ngapain nich?</div>
 </body>
 </html>
